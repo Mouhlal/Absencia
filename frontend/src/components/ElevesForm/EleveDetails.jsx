@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPresences, getAlertes } from '../../api/api';
 import { useParams, Link } from 'react-router-dom';
 
-export default function EleveDetails() {
+export default function EleveDetails({ user }) {
   const { id: eleveId } = useParams();
   const [presences, setPresences] = useState([]);
   const [alertes, setAlertes] = useState([]);
@@ -99,14 +99,18 @@ const totalAbsencesParMatiere = presences.filter(p => !p.present).reduce((acc, c
         </div>
       </div>
 
-      <div className="actions-section">
-        <Link to={`/eleve/${eleveId}/ajouter-presence`} className="btn btn-primary">
-          <i className="fas fa-plus-circle"></i> Ajouter une présence
-        </Link>
-        <Link to="/eleves" className="btn btn-secondary">
-          <i className="fas fa-arrow-left"></i> Retour à la liste
-        </Link>
-      </div>
+    <div className="actions-section">
+  {user?.role === 'admin' && (
+    <Link to={`/eleve/${eleveId}/ajouter-presence`} className="btn btn-primary">
+      <i className="fas fa-plus-circle"></i> Ajouter une présence
+    </Link>
+  )}
+  
+  <Link to="/eleves" className="btn btn-secondary">
+    <i className="fas fa-arrow-left"></i> Retour à la liste
+  </Link>
+</div>
+
 
       <style jsx>{`
         .eleve-details-container {

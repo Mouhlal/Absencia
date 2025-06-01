@@ -100,13 +100,14 @@ export default function App() {
                 <Route path="/ajouter-eleve" element={<AddEleveForm />} />
                 <Route path="/modifier-eleve/:id" element={<EditEleveForm />} />
                 <Route path="/eleve/:id/ajouter-presence" element={<AddPresenceForm />} />
+
               </>
             )}
 
             {/* Routes pour les élèves */}
             {hasRole('eleve') && (
               <>
-                <Route path="/eleve/:id" element={<EleveDetails />} />
+                <Route path="/eleve/:id" element={<EleveDetails user={user} />} />
                 <Route path="/eleve/:id/presences" element={<PresenceList />} />
                 <Route path="/eleve/:id/alertes" element={<AlerteList />} />
                 <Route path="/eleve/:id/notifications" element={<NotificationList />} />

@@ -88,7 +88,7 @@ const handleDelete = async (id) => {
             <div key={n.id} className="table-row">
               <div className="table-cell">{n.id}</div>
               <div className="table-cell message-cell">{n.message}</div>
-              <div className="table-cell">{new Date(n.date).toLocaleString()}</div>
+              <div className="table-cell">{new Date(n.date).toLocaleDateString()}</div>
               <div className="table-cell">
                 <button
                   className="delete-btn"

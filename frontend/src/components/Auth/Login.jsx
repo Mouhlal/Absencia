@@ -106,16 +106,7 @@ export default function Login({ onLogin }) {
             )}
           </button>
         </form>
-{/* 
-        <div className="login-art-footer">
-          <p>
-            Pas encore inscrit ?{" "}
-            <span onClick={() => navigate("/register")} className="login-art-link">
-              Créer un compte
-            </span>
-          </p>
-        </div>
- */}
+
         <div className="login-art-particles">
           {[...Array(15)].map((_, i) => (
             <div key={i} className="particle" style={{

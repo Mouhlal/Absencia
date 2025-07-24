@@ -1,0 +1,26 @@
+# Multi-stage build pour optimiser la taille de l'image
+FROM node:18-alpine as build
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier les fichiers de dépendances d'abord (pour le cache Docker)
+COPY ./frontend/package*.json ./
+
+# Installer les dépendances
+RUN npm ci --only=production
+
+# Copier le code source
+COPY ./frontend ./
+
+# Construire l'application pour le développement
+# Pour la production, utilisez: RUN npm run build
+
+# Exposer le port
+EXPOSE 3000
+
+# Variables d'environnement
+ENV REACT_APP_API_URL=http://localhost:8000
+
+# Démarrer l'application en mode développement
+CMD ["npm", "start"]

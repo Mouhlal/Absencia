@@ -38,8 +38,6 @@ Nous utilisons des images Docker officielles pour :
 - Le backend Django (basé sur l’image `python:3.10`)
 - Le frontend React (basé sur l’image `node:18`)
 
-### Exemple d’image Docker utilisée :
-
 ![Docker Logo](https://www.docker.com/wp-content/uploads/2022/03/horizontal-logo-monochromatic-white.png)
 
 
